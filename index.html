@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎢 Parque de Atracciones de Madrid - El parque más grande y moderno</title>
+    <meta name="description" content="El parque de atracciones más grande y moderno de Madrid. Más de 40 atracciones, espectáculos en vivo y diversión para toda la familia desde 1969.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --secondary: #00a8ff;
+            --accent: #ffd166;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y navegación */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Atracciones */
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .attraction-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .attraction-img {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .attraction-content {
+            padding: 1.5rem;
+        }
+
+        .attraction-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .attraction-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .attraction-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Mapa */
+        .map-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .zone {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .zone:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .zone i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Galería */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Testimonios */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin: 0.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .attractions-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-ferris-wheel"></i>
+                    Parque Madrid
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#atracciones">Atracciones</a></li>
+                    <li><a href="#mapa">Mapa</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">🎢 Parque de Atracciones de Madrid</h1>
+                <p class="fade-in delay-1">El parque más grande y moderno de la capital. Más de 40 atracciones, espectáculos en vivo y diversión para toda la familia desde 1969.</p>
+                <div class="hero-buttons fade-in delay-2">
+                    <a href="#atracciones" class="cta-button">Explorar Atracciones</a>
+                    <a href="#horarios" class="cta-button secondary">Ver Horarios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atracciones -->
+    <section id="atracciones">
+        <div class="container">
+            <div class="section-title">
+                <h2>🎡 Nuestras Atracciones Estrella</h2>
+                <p>Descubre las experiencias más emocionantes que te esperan</p>
+            </div>
+            <div class="attractions-grid">
+                <div class="attraction-card fade-in">
+                    <div class="attraction-img">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Tornado Extremo</h3>
+                        <p>La montaña rusa más rápida de España con giros de 360° y caídas de 50 metros.</p>
+                        <div class="attraction-stats">
+                            <span>🎯 Intensidad: 10/10</span>
+                            <span>⏱️ 2:30 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="attraction-card fade-in delay-1">
+                    <div class="attraction-img">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Cataratas del Amazonas</h3>
+                        <p>Rápidos salvajes con caídas de 15 metros y efectos de agua sorprendentes.</p>
+                        <div class="attraction-stats">
+                            <span>🎯 Intensidad: 8/10</span>
+                            <span>⏱️ 4:00 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="attraction-card fade-in delay-2">
+                    <div class="attraction-img">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Mansión del Terror</h3>
+                        <p>Recorrido interactivo por una casa encantada con efectos especiales y sustos.</p>
+                        <div class="attraction-stats">
+                            <span>🎯 Intensidad: 9/10</span>
+                            <span>⏱️ 6:00 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section id="mapa">
+        <div class="container">
+            <div class="section-title">
+                <h2>🗺️ Mapa del Parque</h2>
+                <p>Navega por nuestras 6 zonas temáticas</p>
+            </div>
+            <div class="map-container fade-in">
+                <div class="map-grid">
+                    <div class="zone">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Zona Adrenalina</h4>
+                        <p>8 atracciones extremas</p>
+                    </div>
+                    <div class="zone">
+                        <i class="fas fa-home"></i>
+                        <h4>Zona Familiar</h4>
+                        <p>12 atracciones para todos</p>
+                    </div>
+                    <div class="zone">
+                        <i class="fas fa-child"></i>
+                        <h4>Zona Infantil</h4>
+                        <p>10 atracciones para niños</p>
+                    </div>
+                    <div class="zone">
+                        <i class="fas fa-tint"></i>
+                        <h4>Zona Acuática</h4>
+                        <p>6 atracciones con agua</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horarios -->
+    <section id="horarios">
+        <div class="container">
+            <div class="section-title">
+                <h2>⏰ Horarios y Precios</h2>
+                <p>Planifica tu visita perfecta</p>
+            </div>
+            <div class="map-container fade-in">
+                <div style="text-align: center; padding: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">🎫 Tipos de Entradas</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow); border: 2px solid var(--primary);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">🎟️ Día Completo</h4>
+                            <p style="font-size: 2rem; color: var(--dark); font-weight: bold;">€35</p>
+                            <p style="color: var(--gray); margin: 1rem 0;">Acceso a todas las atracciones</p>
+                            <button style="background: var(--primary); color: white; border: none; padding: 0.8rem 2rem; border-radius: 25px; cursor: pointer; width: 100%;">Comprar</button>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow); border: 2px solid var(--secondary);">
+                            <h4 style="color: var(--secondary); margin-bottom: 1rem;">🌙 Nocturna</h4>
+                            <p style="font-size: 2rem; color: var(--dark); font-weight: bold;">€30</p>
+                            <p style="color: var(--gray); margin: 1rem 0;">De 20:00 a 02:00</p>
+                            <button style="background: var(--secondary); color: white; border: none; padding: 0.8rem 2rem; border-radius: 25px; cursor: pointer; width: 100%;">Comprar</button>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow); border: 2px solid var(--accent); position: relative;">
+                            <div style="position: absolute; top: -10px; right: 20px; background: var(--accent); color: var(--dark); padding: 0.3rem 1rem; border-radius: 15px; font-size: 0.8rem; font-weight: bold;">MEJOR OFERTA</div>
+                            <h4 style="color: var(--accent); margin-bottom: 1rem;">⭐ 2 Días</h4>
+                            <p style="font-size: 2rem; color: var(--dark); font-weight: bold;">€60</p>
+                            <p style="color: var(--gray); margin: 1rem 0;">2 días consecutivos</p>
+                            <button style="background: var(--accent); color: var(--dark); border: none; padding: 0.8rem 2rem; border-radius: 25px; cursor: pointer; width: 100%; font-weight: bold;">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: var(--light); border-radius: 10px;">
+                    <h4 style="color: var(--dark); margin-bottom: 1rem;">🕒 Horarios de Apertura</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div>
+                            <p style="font-weight: bold;">Lunes a Viernes</p>
+                            <p>10:00 - 20:00</p>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold;">Sábados</p>
+                            <p>09:00 - 22:00</p>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold;">Domingos/Festivos</p>
+                            <p>09:00 - 21:00</p>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold;">Nocturnas (Vie-Sáb)</p>
+                            <p>20:00 - 02:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>📸 Galería Multimedia</h2>
+                <p>Momentos inolvidables en nuestro parque</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <i class="fas fa-photo-video"></i>
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <i class="fas fa-images"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>💬 Lo que Dicen Nuestros Visitantes</h2>
+                <p>Más de 1 millón de visitantes felices cada año</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AM</div>
+                        <div>
+                            <h4>Ana Martínez</h4>
+                            <p>Visitante Familiar</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"¡Increíble experiencia! Mis hijos no paraban de sonreír. Las atracciones están en perfecto estado y el personal es muy amable."</p>
+                </div>
+                <div class="testimonial-card fade-in delay-1">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">CR</div>
+                        <div>
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Aventurero</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"La montaña rusa Tornado es una locura. Nunca había sentido tanta adrenalina. ¡Volveré seguro!"</p>
+                </div>
+                <div class="testimonial-card fade-in delay-2">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LS</div>
+                        <div>
+                            <h4>Laura Sánchez</h4>
+                            <p>Influencer de Viajes</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Perfecto para fotos y contenido. Las zonas temáticas están muy bien decoradas y los espectáculos nocturnos son mágicos."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>📞 Contacto y Reservas</h2>
+                <p>¿Listo para vivir la aventura?</p>
+            </div>
+            <div class="map-container fade-in" style="text-align: center;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">🎫 ¡Reserva Online y Ahorra 20%!</h3>
+                <p style="margin-bottom: 2rem; color: var(--gray); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Compra tus entradas online para evitar colas y obtener descuentos exclusivos. Garantía de reembolso hasta 24h antes.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="cta-button" style="font-size: 1.1rem;">
+                        <i class="fas fa-ticket-alt"></i> Comprar Entradas
+                    </a>
+                    <a href="tel:+34911234567" class="cta-button secondary" style="font-size: 1.1rem;">
+                        <i class="fas fa-phone"></i> Llamar: 91 123 45 67
+                    </a>
+                </div>
+                <div style="margin-top: 3rem; padding: 2rem; background: var(--light); border-radius: 10px;">
+                    <h4 style="color: var(--dark); margin-bottom: 1rem;">📍 Cómo Llegar</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                        <div>
+                            <i class="fas fa-subway" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <p style="font-weight: bold;">Metro</p>
+                            <p>Línea 10 - Estación "Parque de Atracciones"</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-bus" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <p style="font-weight: bold;">Autobús</p>
+                            <p>Líneas 33, 65, 75, 138</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-car" style="color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <p style="font-weight: bold;">Coche</p>
+                            <p>Parking gratuito para 5,000 vehículos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎢 Parque de Atracciones Madrid</h3>
+                    <p>El parque más grande y moderno de la capital, ofreciendo diversión y emociones desde 1969.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#atracciones">Atracciones</a></li>
+                        <li><a href="#mapa">Mapa</a></li>
+                        <li><a href="#horarios">Horarios</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Precios y Entradas</a></li>
+                        <li><a href="#">Normas del Parque</a></li>
+                        <li><a href="#">Accesibilidad</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. de la Diversión, 28000 Madrid</p>
+                    <p><i class="fas fa-phone"></i> 91 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> info@parquemadrid.com</p>
+                    <p><i class="fas fa-clock"></i> Abierto todos los días</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Parque de Atracciones de Madrid. Todos los derechos reservados.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="#" style="color: #ccc; margin: 0 10px;">Política de Privacidad</a> | 
+                    <a href="#" style="color: #ccc; margin: 0 10px;">Términos y Condiciones</a> | 
+                    <a href="#" style="color: #ccc; margin: 0 10px;">Cookies</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para animaciones -->
+    <script>
+        // Animación al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+
+            // Smooth scroll para enlaces
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Efecto hover en tarjetas
+            document.querySelectorAll('.attraction-card, .zone, .gallery-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+
+        // Contador de visitantes (simulado)
+        window.addEventListener('load', function() {
+            const visitorCount = Math.floor(Math.random() * 1000000) + 1000000;
+            console.log(`🎢 ¡Bienvenido al Parque de Atracciones de Madrid!`);
+            console.log(`👥 Más de ${visitorCount.toLocaleString()} visitantes felices este año`);
+        });
+    </script>
+</body>
+</html>
