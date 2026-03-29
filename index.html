@@ -103,17 +103,10 @@
             padding: 100px 20px 50px;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .hero-content {
@@ -214,12 +207,32 @@
 
         .attraction-img {
             height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4rem;
+            position: relative;
+        }
+
+        .attraction-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .attraction-img-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.5rem;
         }
 
         .attraction-content {
@@ -290,7 +303,6 @@
 
         .gallery-item {
             height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -298,10 +310,37 @@
             color: white;
             font-size: 3rem;
             transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover::before {
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item:hover {
             transform: scale(1.05);
+        }
+
+        .gallery-icon {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 50%;
         }
 
         /* Testimonios */
@@ -497,8 +536,10 @@
             </div>
             <div class="attractions-grid">
                 <div class="attraction-card fade-in">
-                    <div class="attraction-img">
-                        <i class="fas fa-mountain"></i>
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="attraction-img-content">
+                            <i class="fas fa-mountain"></i> TORNADO
+                        </div>
                     </div>
                     <div class="attraction-content">
                         <h3>Tornado Extremo</h3>
@@ -510,8 +551,10 @@
                     </div>
                 </div>
                 <div class="attraction-card fade-in delay-1">
-                    <div class="attraction-img">
-                        <i class="fas fa-water"></i>
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="attraction-img-content">
+                            <i class="fas fa-water"></i> CATARATAS
+                        </div>
                     </div>
                     <div class="attraction-content">
                         <h3>Cataratas del Amazonas</h3>
@@ -523,8 +566,11 @@
                     </div>
                 </div>
                 <div class="attraction-card fade-in delay-2">
-                    <div class="attraction-img">
-                        <i class="fas fa-ghost"></i>
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=
+800&q=80');">
+                        <div class="attraction-img-content">
+                            <i class="fas fa-ghost"></i> TERROR
+                        </div>
                     </div>
                     <div class="attraction-content">
                         <h3>Mansión del Terror</h3>
@@ -638,17 +684,25 @@
                 <p>Momentos inolvidables en nuestro parque</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item fade-in">
-                    <i class="fas fa-camera"></i>
+                <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="gallery-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
                 </div>
-                <div class="gallery-item fade-in delay-1">
-                    <i class="fas fa-video"></i>
+                <div class="gallery-item fade-in delay-1" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="gallery-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
                 </div>
-                <div class="gallery-item fade-in delay-2">
-                    <i class="fas fa-photo-video"></i>
+                <div class="gallery-item fade-in delay-2" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="gallery-icon">
+                        <i class="fas fa-photo-video"></i>
+                    </div>
                 </div>
-                <div class="gallery-item fade-in delay-1">
-                    <i class="fas fa-images"></i>
+                <div class="gallery-item fade-in delay-1" style="background-image: url('https://images.unsplash.com/photo-1567593810070-7a5c0925344e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    <div class="gallery-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
                 </div>
             </div>
         </div>
